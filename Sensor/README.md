@@ -29,13 +29,67 @@ Step 7: Save and run the application.
 ```
 /*
 Program to print the avaliable sensor in android mobile devices”.
-Developed by:
-Registeration Number :
+Developed by: M.Hariharan
+Registeration Number : 212221230034
 */
+```
+### MainActivity.java
+```
+package com.example.ex4;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+private SensorManager mgr;
+private TextView txtList;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mgr=(SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        txtList=(TextView) findViewById(R.id.textView);
+        List<Sensor> sensorList= mgr.getSensorList(Sensor.TYPE_ALL);
+        StringBuilder strB=new StringBuilder();
+        for(Sensor s: sensorList){
+            strB.append(s.getName()+"\n");
+        }
+        txtList.setVisibility(View.VISIBLE);
+        txtList.setText(strB);
+    }
+}
+```
+### activity_main.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="291dp"
+        android:layout_height="481dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="110dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
 ## OUTPUT
-
+![](ex4.png)
 
 
 
