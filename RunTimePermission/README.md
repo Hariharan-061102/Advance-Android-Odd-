@@ -35,7 +35,7 @@ Registeration Number : 212221230034
 ```
 ### MainActivity.java
 ```java
-package com.example.runtimepermission;
+package com.example.delete;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this,"Permission already granted",Toast.LENGTH_SHORT).show();
         }
     }
-    @Override
+
     public void onRequestPermissionResult(int requestCode,
                                           @NonNull String[] permissions,
                                           @NonNull int[] grantResults)
@@ -112,18 +112,23 @@ public class MainActivity extends AppCompatActivity {
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.runtimepermission">
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <application
         android:allowBackup="true"
-
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Runtimepermission">
+        android:theme="@style/Theme.Delete"
+        tools:targetApi="31">
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -132,9 +137,6 @@ public class MainActivity extends AppCompatActivity {
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
     </application>
 
@@ -189,9 +191,10 @@ public class MainActivity extends AppCompatActivity {
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 ## OUTPUT
-
-
-
+![](4.png)
+![](3.png)
+![](2.png)
+![](1.png)
 
 ## RESULT
 Thus a Simple Android Application to request storage and camera permission at RunTime in Android Studio is developed and executed successfully.
