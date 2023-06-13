@@ -35,7 +35,7 @@ Registeration Number : 212221230034
 */
 ```
 ### MainActivity.java
-```
+```java
 package com.example.ex1;
 
 import androidx.appcompat.app.AppCompatActivity;
